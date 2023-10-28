@@ -23,8 +23,8 @@ resource "azurerm_container_group" "mineContainer" {
     image        = "itzg/minecraft-server"
     cpu          = 1
     memory       = 1
-    cpu_limit    = 2
-    memory_limit = 2
+    cpu_limit    = 1
+    memory_limit = 1
     ports {
       port     = 25565
       protocol = "TCP"
