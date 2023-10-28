@@ -22,9 +22,9 @@ resource "azurerm_container_group" "mineContainer" {
     name                  = "minecraft"
     image                 = "itzg/minecraft-server"
     cpu                   = 1
-    memory                = 1
+    memory                = 3
     cpu_limit             = 1
-    memory_limit          = 1
+    memory_limit          = 3
     environment_variables = { "EULA" = "true" }
     ports {
       port     = 25565
