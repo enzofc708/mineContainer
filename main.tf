@@ -21,9 +21,9 @@ resource "azurerm_container_group" "mineContainer" {
   container {
     name                  = "minecraft"
     image                 = "itzg/minecraft-server"
-    cpu                   = 1
+    cpu                   = 2
     memory                = 3
-    cpu_limit             = 1
+    cpu_limit             = 2
     memory_limit          = 3
     environment_variables = { "EULA" = "true" }
     ports {
