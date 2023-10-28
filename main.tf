@@ -27,7 +27,7 @@ resource "azurerm_container_group" "mineContainer" {
     memory_limit = 2
     ports {
       port     = 25565
-      protocol = "tcp"
+      protocol = "TCP"
     }
     # volume {
     #   name = "mineData"
