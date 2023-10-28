@@ -19,12 +19,13 @@ resource "azurerm_container_group" "mineContainer" {
   os_type             = "Linux"
   ip_address_type     = "Public"
   container {
-    name         = "minecraft"
-    image        = "itzg/minecraft-server"
-    cpu          = 1
-    memory       = 1
-    cpu_limit    = 1
-    memory_limit = 1
+    name                  = "minecraft"
+    image                 = "itzg/minecraft-server"
+    cpu                   = 1
+    memory                = 1
+    cpu_limit             = 1
+    memory_limit          = 1
+    environment_variables = [{ "EULA" = "true" }]
     ports {
       port     = 25565
       protocol = "TCP"
