@@ -30,6 +30,10 @@ resource "azurerm_container_group" "mineContainer" {
       port     = 25575
       protocol = "TCP"
     }
+    ports {
+      port     = 25565
+      protocol = "TCP"
+    }
     # volume {
     #   name = "mineData"
     #   mount_path = "/mineData"
