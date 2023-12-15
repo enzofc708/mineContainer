@@ -26,7 +26,7 @@ resource "azurerm_container_group" "mineContainer" {
     cpu_limit             = 2
     memory_limit          = 3
     environment_variables = { "EULA" = "true" }
-    commands              = "sed -i 's/online-mode=true/online-mode=false/' server.properties"
+    commands              = ["sed -i 's/online-mode=true/online-mode=false/' server.properties"]
 
     ports {
       port     = 25575
