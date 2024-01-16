@@ -7,6 +7,19 @@ resource "azurerm_resource_group" "resourcegroup" {
   location = "Brazil South"
 }
 
+################################################################################
+# Storage Account
+################################################################################
+
+resource "azurerm_storage_account" "mine_storage" {
+  name                     = "minecraft-storage"
+  resource_group_name      = azurerm_resource_group.resourcegroup.id
+  location                 = azurerm_resource_group.resourcegroup.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+
 
 ################################################################################
 # Container App
@@ -36,9 +49,9 @@ resource "azurerm_container_group" "mineContainer" {
       protocol = "TCP"
     }
     volume {
-      name = "minecraft-volume"
-      mount_path = "/data"
-      empty_dir = true
+      name                 = "minecraft-volume"
+      mount_path           = "/data"
+      storage_account_name = azurerm_storage_account.mine_storage.name
     }
   }
 }
