@@ -38,6 +38,7 @@ resource "azurerm_container_group" "mineContainer" {
     volume {
       name = "minecraft-volume"
       mount_path = "/data"
+      empty_dir = true
     }
   }
 }
