@@ -19,6 +19,12 @@ resource "azurerm_storage_account" "mine_storage" {
   account_replication_type = "LRS"
 }
 
+resource "azurerm_storage_share" "mine_file_share" {
+  name                 = "mineshareplat"
+  storage_account_name = azurerm_storage_account.mine_storage.name
+  quota                = 5
+}
+
 
 
 ################################################################################
@@ -52,6 +58,9 @@ resource "azurerm_container_group" "mineContainer" {
       name                 = "minecraft-volume"
       mount_path           = "/data"
       storage_account_name = azurerm_storage_account.mine_storage.name
+      share_name = azurerm_storage_share.mine_file_share.name
+      storage_account_key = azurerm_storage_account.mine_storage.primary_access_key
+      
     }
   }
 }
