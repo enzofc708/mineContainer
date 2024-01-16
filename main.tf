@@ -13,7 +13,7 @@ resource "azurerm_resource_group" "resourcegroup" {
 
 resource "azurerm_storage_account" "mine_storage" {
   name                     = "minecraftstorage"
-  resource_group_name      = azurerm_resource_group.resourcegroup.id
+  resource_group_name      = azurerm_resource_group.resourcegroup.name
   location                 = azurerm_resource_group.resourcegroup.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
